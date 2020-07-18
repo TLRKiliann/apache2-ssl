@@ -25,12 +25,11 @@ How to protect apache2 (raspberry pi 3)
     ServerName      tuto.name_site.com \
     # The HTTP port is redirected to the HTTPS port. \
     Redirect        / https://www.name_site.com \
-</VirtualHost> \
+</VirtualHost>
 
 <VirtualHost *:443> \
     ServerName      tuto.name_site.com \
-    DocumentRoot    /var/www/html \
-        
+    DocumentRoot    /var/www/html \        
     SSLEngine on \
     SSLCertificateFile    /etc/ssl/www/certificat.crt \
     SSLCertificateKeyFile /etc/ssl/www/certificat.key \
@@ -43,7 +42,7 @@ How to protect apache2 (raspberry pi 3)
     # Optional, encryption algorithm available (don't be too nasty or \
       many older browsers won't be able to connect anymore) \
     SSLCipherSuite ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES \
-</VirtualHost> \
+</VirtualHost>
 
 
 > sudo a2ensite tuto.conf
