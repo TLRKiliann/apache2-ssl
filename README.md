@@ -21,13 +21,13 @@ How to protect apache2 (raspberry pi 3)
 
 
 
-<VirtualHost *:80> /
+<VirtualHost *:80> \
     ServerName      tuto.name_site.com /
-    # The HTTP port is redirected to the HTTPS port. /
-    Redirect        / https://www.name_site.com /
-</VirtualHost> /
+    # The HTTP port is redirected to the HTTPS port. \n
+    Redirect        / https://www.name_site.com "\n"
+</VirtualHost> \
 
-<VirtualHost *:443>
+<VirtualHost *:443> "\n"
     ServerName      tuto.name_site.com
     DocumentRoot    /var/www/html
         
