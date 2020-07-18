@@ -1,19 +1,19 @@
 # apache2-ssl
 How to protect apache2 (raspberry pi 3)
 
-apt-get install openssl
+> apt-get install openssl
 
-openssl genrsa -aes256 -out certificat.key 4096
+> openssl genrsa -aes256 -out certificat.key 4096
 
-mv certificat.key certificat.key.lock
+> mv certificat.key certificat.key.lock
 
-openssl rsa -in certificat.key.lock -out certificat.key
+> openssl rsa -in certificat.key.lock -out certificat.key
 
-openssl req -new -key certificat.key.lock -out certificat.csr
+> openssl req -new -key certificat.key.lock -out certificat.csr
 
-openssl x509 -req -days 365 -in certificat.csr -signkey certificat.key.lock -out certificat.crt
+> openssl x509 -req -days 365 -in certificat.csr -signkey certificat.key.lock -out certificat.crt
 
-a2enmod ssl
+> sudo a2enmod ssl
 
 
 
@@ -26,6 +26,7 @@ a2enmod ssl
     # On redirige le port HTTP vers le port HTTPS
     Redirect        / https://www.name_site.com
 </VirtualHost>
+
 <VirtualHost *:443>
     ServerName      tuto.name_site.com
     DocumentRoot    /var/www/html
@@ -42,6 +43,6 @@ a2enmod ssl
 </VirtualHost>
 
 
-a2ensite tuto.conf
+> sudo a2ensite tuto.conf
 
-service apache2 restart
+> service apache2 restart
