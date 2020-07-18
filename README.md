@@ -21,13 +21,13 @@ How to protect apache2 (raspberry pi 3)
 
 
 
-> <VirtualHost *:80>
+#<VirtualHost *:80>
     ServerName      tuto.name_site.com
     # On redirige le port HTTP vers le port HTTPS
     Redirect        / https://www.name_site.com
-> </VirtualHost>
+#</VirtualHost>
 
-> <VirtualHost *:443>
+<VirtualHost *:443>
     ServerName      tuto.name_site.com
     DocumentRoot    /var/www/html
         
@@ -40,7 +40,7 @@ How to protect apache2 (raspberry pi 3)
     SSLHonorCipherOrder on
     # Facultatif, algorithme de chiffrement disponibles (ne pas être trop méchant sinon beaucoup de navigateur un peu ancien ne pourront plus se connecter)
     SSLCipherSuite ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES
-> </VirtualHost>
+</VirtualHost>
 
 
 > sudo a2ensite tuto.conf
