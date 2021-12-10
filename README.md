@@ -1,5 +1,5 @@
 # apache2-ssl
-How to protect apache2 (raspberry pi 3)
+How to protect apache2 with HTTPS protocol (raspberry pi 3)
 
 > apt-get install openssl
 
