@@ -1,19 +1,19 @@
 # apache2-ssl
 How to protect apache2 with HTTPS protocol (raspberry pi 3)
 
-> apt-get install openssl
+`apt-get install openssl`
 
-> openssl genrsa -aes256 -out certificat.key 4096
+`openssl genrsa -aes256 -out certificat.key 4096`
 
-> mv certificat.key certificat.key.lock
+`mv certificat.key certificat.key.lock`
 
-> openssl rsa -in certificat.key.lock -out certificat.key
+`openssl rsa -in certificat.key.lock -out certificat.key`
 
-> openssl req -new -key certificat.key.lock -out certificat.csr
+`openssl req -new -key certificat.key.lock -out certificat.csr`
 
-> openssl x509 -req -days 365 -in certificat.csr -signkey certificat.key.lock -out certificat.crt
+`openssl x509 -req -days 365 -in certificat.csr -signkey certificat.key.lock -out certificat.crt`
 
-> sudo a2enmod ssl
+`sudo a2enmod ssl`
 
 
 
@@ -21,7 +21,7 @@ How to protect apache2 with HTTPS protocol (raspberry pi 3)
 
 
 
-<VirtualHost *:80> \
+`<VirtualHost *:80> \
     ServerName      tuto.name_site.com \
     # The HTTP port is redirected to the HTTPS port. \
     Redirect        / https://www.name_site.com \
@@ -42,9 +42,9 @@ How to protect apache2 with HTTPS protocol (raspberry pi 3)
     # Optional, encryption algorithm available (don't be too nasty or \
       many older browsers won't be able to connect anymore) \
     SSLCipherSuite ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES \
-</VirtualHost>
+</VirtualHost>`
 
 
-> sudo a2ensite tuto.conf
+`sudo a2ensite tuto.conf`
 
-> service apache2 restart
+`service apache2 restart`
